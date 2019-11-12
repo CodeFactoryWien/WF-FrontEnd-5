@@ -27,7 +27,11 @@ export class PhoneBookComponent implements OnInit {
         this.submitted = false;
         this.phonebookService.form.reset();// the form will be empty after new record created
           } else {
-                  //update
+            this.phonebookService.updateCustomer(this.phonebookService.form.value);
+            this .showSuccessMessage = true;
+           setTimeout(()=> this.showSuccessMessage=false ,3000);
+           this.submitted = false;
+            this.phonebookService.form.reset();
           }
     }
   }

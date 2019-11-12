@@ -1,1 +1,23 @@
-<p>phone-list works!</p>
+<form class="form-inline">
+        <input name="searchInput" class="form-control"  placeholder="Search" #searchInput="ngModel"  [(ngModel)]="searchText" style="width: 80%;">
+        <button class="btn btn-outline-primary"  (click)="searchText=''">x</button>
+</form>
+<table class="table table-sm">
+    <thead>
+            <th>Full Name</th>
+            <th>Email</th>
+            <th>Mobile</th>
+            <th></th>
+    </thead>
+    <ng-container *ngFor="let contact of contactArray">
+            <tr class="table-dark" *ngIf ="filterCondition(contact)">
+                    <td>{{contact.fullName}}</td>
+                    <td>{{contact.email}}</td>
+                    <td>{{contact.mobile}}</td>
+                    <td>
+                            <button class="btn btn-info" (click)="phonebookService.populateForm(contact)">Edit</button>
+                            <button class="btn btn-danger" (click)="onDelete(contact.$key)">Delete</button>
+                    </td>
+            </tr>
+    </ng-container>
+</table>

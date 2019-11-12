@@ -29,4 +29,17 @@ export class PhonebookService {
                   mobile: customer.mobile
            });
   }
+  populateForm(customer){
+        this.form.setValue(customer);
+      }
+      updateCustomer(customer){
+        this.phoneList.update(customer.$key,{
+           fullName:  customer.fullName,
+            email: customer.email,
+            mobile: customer.mobile
+        });
+      }
+      deleteCustomer($key: string){
+        this.phoneList.remove($key);
+      }
 }
