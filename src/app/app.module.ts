@@ -30,6 +30,7 @@ import { ContactDialogComponent } from './contact-dialog/contact-dialog.componen
 import { AngularFireModule } from "angularfire2";
 import { AngularFireDatabaseModule } from "angularfire2/database";
 import { environment } from "../environments/environment";
+import { MainsiteComponent } from './mainsite/mainsite.component';
 
 @NgModule({
   declarations: [
@@ -46,7 +47,8 @@ import { environment } from "../environments/environment";
     HeadingComponent,
     BlogComponent,
     ContactComponent,
-    ContactDialogComponent
+    ContactDialogComponent,
+    MainsiteComponent
   ],
   imports: [
     BrowserModule,
