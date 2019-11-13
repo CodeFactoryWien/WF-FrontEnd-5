@@ -20,7 +20,7 @@ import { ErrorInterceptor } from './_helpers/error.interceptor';
 import { HomeComponent } from './home/home.component';
 import { AdminComponent } from './admin/admin.component';
 import { LoginComponent } from './login/login.component';
-import { CoursesComponent } from './Courses/Courses.component';
+import { CoursesComponent } from './courses/courses.component';
 import { AboutComponent } from './about/about.component';
 import { HeadingComponent } from './heading/heading.component';
 import { BlogComponent } from './blog/blog.component';
