@@ -12,7 +12,7 @@
     <a mat-list-item href="#contact">Contact</a>
   </mat-nav-list>
   <span class="navigation-spacer"></span>
-  <a mat-list-item *ngIf="isLoggedIn" (click)="logout()">Logout</a>
+  <a mat-list-item (click)="logout()">Logout</a>
   <a mat-list-item routerLink="/admin" *ngIf="isAdmin">Admin</a>
   <button id=contact-fab-button (click)="openDialog()" mat-mini-fab color="primary" matTooltip="Contact Us"
     [matTooltipPosition]="'left'">
