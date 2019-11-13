@@ -23,7 +23,7 @@ export class HomeComponent {
 
     ngOnInit() {
         this.loading = true;
-        this.phonebookService.currentUser = this.currentUser.firstName;
+        this.phonebookService.currentUser = this.currentUser.id;
         this.userService.getById(this.currentUser.id).pipe(first()).subscribe(user => {
             this.loading = false;
             this.userFromApi = user;

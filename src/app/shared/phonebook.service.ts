@@ -10,7 +10,7 @@ export class PhonebookService {
 
  constructor(private firebase: AngularFireDatabase) { }
          phoneList: AngularFireList<any>;
-          currentUser: string;
+          currentUser: number;
          form = new FormGroup({
      $key: new FormControl(null),
      fullName: new FormControl('', Validators.required),
@@ -19,7 +19,7 @@ export class PhonebookService {
          });
 
          getCustomers(){
-                 this.phoneList = this.firebase.list(this.currentUser);
+                 this.phoneList = this.firebase.list(this.currentUser.toString()+"userDB");
                  return this.phoneList.snapshotChanges();
          }
          insertCustomer(customer){
@@ -29,7 +29,7 @@ export class PhonebookService {
                   mobile: customer.mobile
            });
   }
-  
+
   populateForm(customer){
         this.form.setValue(customer);
       }
