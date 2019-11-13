@@ -14,7 +14,7 @@ export class PhoneListComponent implements OnInit {
   constructor(private phonebookService:PhonebookService) { }
 
   ngOnInit() {
-    this.phonebookService.getContacts().subscribe(
+    this.phonebookService.getCustomers().subscribe(
       (list) => {
               this.contactArray = list.map( (item) => {
                      return {
@@ -26,7 +26,7 @@ export class PhoneListComponent implements OnInit {
   }
   onDelete($key){
     if(confirm("Are you sure you want to delete this record?")){
-       this.phonebookService.deleteContact($key);
+       this.phonebookService.deleteCustomer($key);
       }
   }
 
