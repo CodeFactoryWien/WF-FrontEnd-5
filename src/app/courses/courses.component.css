@@ -1,0 +1,24 @@
+.Courses-row {
+  margin-top: 20px;
+}
+
+.Courses-button {
+  margin-top: 10px;
+}
+
+.Courses-section {
+  text-align: center;
+}
+
+.Courses-heading {
+  padding-bottom: 30px;
+}
+
+.Courses-heading h2 {
+  font-size: 32px;
+}
+
+.Courses-heading h3 {
+  font-size: 22px;
+}
+/*# sourceMappingURL=courses.component.css.map */
