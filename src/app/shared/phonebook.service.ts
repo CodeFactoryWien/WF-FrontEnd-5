@@ -44,9 +44,9 @@ populateForm(customer) {
     this.form.setValue(customer);
   }
 updateCustomer(customer) {
-  this.costFullNameEnc = (CryptoJS.AES.encrypt(customer.fullName, "1234")).toString(),
-  this.costEmailEnc = (CryptoJS.AES.encrypt(customer.email, "1234")).toString(),
-  this.costMobileEnc = CryptoJS.AES.encrypt(customer.mobile, "1234").toString(),
+  this.costFullNameEnc = (CryptoJS.AES.encrypt(customer.fullName, "9&:ks=mGK2XLB.hq")).toString(),
+    this.costEmailEnc = (CryptoJS.AES.encrypt(customer.email, "9&:ks=mGK2XLB.hq")).toString(),
+    this.costMobileEnc = CryptoJS.AES.encrypt(customer.mobile, "9&:ks=mGK2XLB.hq").toString(),
   this.phoneList.update(customer.$key, {
     fullName: this.costFullNameEnc,
     email:  this.costEmailEnc,

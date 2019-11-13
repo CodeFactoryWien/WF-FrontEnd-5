@@ -19,9 +19,9 @@ export class PhoneListComponent implements OnInit {
     this.phonebookService.getCustomers().subscribe(
       (list) => {
         this.contactArray = list.map((item) => {
-          this.emailDec = CryptoJS.AES.decrypt(item.payload.val().email, "1234").toString(CryptoJS.enc.Utf8);
-          this.fullNameDec = CryptoJS.AES.decrypt(item.payload.val().fullName, "1234").toString(CryptoJS.enc.Utf8);
-          this.mobileDec = CryptoJS.AES.decrypt(item.payload.val().mobile,"1234").toString(CryptoJS.enc.Utf8);
+          this.emailDec = CryptoJS.AES.decrypt(item.payload.val().email, "9&:ks=mGK2XLB.hq").toString(CryptoJS.enc.Utf8);
+          this.fullNameDec = CryptoJS.AES.decrypt(item.payload.val().fullName, "9&:ks=mGK2XLB.hq").toString(CryptoJS.enc.Utf8);
+          this.mobileDec = CryptoJS.AES.decrypt(item.payload.val().mobile,"9&:ks=mGK2XLB.hq").toString(CryptoJS.enc.Utf8);
           return {
             $key: item.key,
             email: this.emailDec,
