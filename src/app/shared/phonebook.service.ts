@@ -17,31 +17,39 @@ export class PhonebookService {
     email: new FormControl('', Validators.email),
     mobile: new FormControl('', [Validators.required, Validators.minLength(8)])
   });
-  costFullNameEnc: any;
-  costEmailEnc: any;
-  costMobileEnc: any;
-  costFullNameDec: any;
-  costEmailEncDec: any;
-  costMobileDec: any;
+  costFullNameEnc: string;
+  costEmailEnc: string;
+  costMobileEnc: string;
+  costFullNameDec: string;
+  costEmailEncDec: string;
+  costMobileDec: string;
+
 getCustomers() {
-    this.phoneList = this.firebase.list('contacts-test');
+  this.phoneList = this.firebase.list('contacts-test');
     return this.phoneList.snapshotChanges();
   }
-insertCustomer(customer) {
+  insertCustomer(customer) {
+      this.costFullNameEnc = (CryptoJS.AES.encrypt(customer.fullName.toString(), "1234")).toString(),
+      this.costEmailEnc = (CryptoJS.AES.encrypt(customer.email.toString(), "1234")).toString(),
+      this.costMobileEnc = CryptoJS.AES.encrypt(customer.mobile.toString(), "1234").toString(),
+        console.log(this.costFullNameEnc),
     this.phoneList.push({
-      fullName: CryptoJS.AES.encrypt(customer.fullName),
-      email: CryptoJS.AES.encrypt(customer.email),
-      mobile: CryptoJS.AES.encrypt(customer.mobile)
+      fullName: this.costFullNameEnc,
+      email:  this.costEmailEnc,
+      mobile: this.costMobileEnc
     });
   }
 populateForm(customer) {
     this.form.setValue(customer);
   }
 updateCustomer(customer) {
-    this.phoneList.update(customer.$key, {
-      fullName: CryptoJS.AES.decrypt(customer.fullName),
-      email: CryptoJS.AES.decrypt(customer.email),
-      mobile: CryptoJS.AES.decrypt(customer.mobile)
+  this.costFullNameEnc = (CryptoJS.AES.encrypt(customer.fullName, "1234")).toString(),
+  this.costEmailEnc = (CryptoJS.AES.encrypt(customer.email, "1234")).toString(),
+  this.costMobileEnc = CryptoJS.AES.encrypt(customer.mobile, "1234").toString(),
+  this.phoneList.update(customer.$key, {
+    fullName: this.costFullNameEnc,
+    email:  this.costEmailEnc,
+    mobile: this.costMobileEnc
     });
   }
 deleteCustomer($key: string) {
