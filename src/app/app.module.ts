@@ -20,7 +20,7 @@ import { ErrorInterceptor } from './_helpers/error.interceptor';
 import { HomeComponent } from './home/home.component';
 import { AdminComponent } from './admin/admin.component';
 import { LoginComponent } from './login/login.component';
-import { CoursesComponent } from './Courses/Courses.component';
+import { CoursesComponent } from './courses/courses.component';
 import { AboutComponent } from './about/about.component';
 import { HeadingComponent } from './heading/heading.component';
 import { BlogComponent } from './blog/blog.component';
@@ -30,6 +30,7 @@ import { ContactDialogComponent } from './contact-dialog/contact-dialog.componen
 import { AngularFireModule } from "angularfire2";
 import { AngularFireDatabaseModule } from "angularfire2/database";
 import { environment } from "../environments/environment";
+import { MainsiteComponent } from './mainsite/mainsite.component';
 
 @NgModule({
   declarations: [
@@ -46,7 +47,8 @@ import { environment } from "../environments/environment";
     HeadingComponent,
     BlogComponent,
     ContactComponent,
-    ContactDialogComponent
+    ContactDialogComponent,
+    MainsiteComponent
   ],
   imports: [
     BrowserModule,

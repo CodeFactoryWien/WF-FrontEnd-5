@@ -12,6 +12,7 @@
     <a mat-list-item href="#contact">Contact</a>
   </mat-nav-list>
   <span class="navigation-spacer"></span>
+  <a mat-list-item class="navigation-list" routerLink="/admin" *ngIf="isAdmin" style="margin-right:16px;">Admin</a>
   <button id=contact-fab-button (click)="openDialog()" mat-mini-fab color="primary" matTooltip="Contact Us"
     [matTooltipPosition]="'left'">
     <mat-icon>email</mat-icon>
@@ -31,15 +32,6 @@
       <a mat-list-item href="#contact">Contact</a>
     </mat-nav-list>
   </mat-sidenav>
+  <router-outlet></router-outlet>
 
-  <mat-sidenav-content nglp-scroll (onScroll)="detectScroll($event)">
-
-    <app-heading></app-heading>
-    <app-about></app-about>
-    <app-Courses></app-Courses>
-    <app-blog></app-blog>
-    <app-contact></app-contact>
-
-  </mat-sidenav-content>
-</mat-sidenav-container>
 

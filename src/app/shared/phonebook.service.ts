@@ -1,47 +1,56 @@
 import { Injectable } from '@angular/core';
-import { FormControl, FormGroup, Validators } from "@angular/forms";
+import { FormControl , FormGroup , Validators } from "@angular/forms";
 import { AngularFireDatabase, AngularFireList } from "angularfire2/database";
 import * as CryptoJS from 'crypto-js';
 
 @Injectable({
-  providedIn: 'root'
+ providedIn: 'root'
 })
 export class PhonebookService {
 
-  constructor(private firebase: AngularFireDatabase) { }
-  phoneList: AngularFireList<any>;
+ constructor(private firebase: AngularFireDatabase) { }
+         phoneList: AngularFireList<any>;
+          currentUser: number;
+         form = new FormGroup({
+     $key: new FormControl(null),
+     fullName: new FormControl('', Validators.required),
+     email: new FormControl('', Validators.email),
+     mobile: new FormControl('', [Validators.required, Validators.minLength(8)])
+         });
 
-  form = new FormGroup({
-    $key: new FormControl(null),
-    fullName: new FormControl('', Validators.required),
-    email: new FormControl('', Validators.email),
-    mobile: new FormControl('', [Validators.required, Validators.minLength(8)])
-  });
-  costFullNameEnc: any;
-  costEmailEnc: any;
-  costMobileEnc: any;
-  costFullNameDec: any;
-  costEmailEncDec: any;
-  costMobileDec: any;
+  costFullNameEnc: string;
+  costEmailEnc: string;
+  costMobileEnc: string;
+  costFullNameDec: string;
+  costEmailEncDec: string;
+  costMobileDec: string;
+
 getCustomers() {
-    this.phoneList = this.firebase.list('contacts-test');
+  this.phoneList = this.firebase.list(this.currentUser.toString()+"userDB");
     return this.phoneList.snapshotChanges();
   }
-insertCustomer(customer) {
+  insertCustomer(customer) {
+    this.costFullNameEnc = (CryptoJS.AES.encrypt(customer.fullName.toString(), "9&:ks=mGK2XLB.hq")).toString(),
+      this.costEmailEnc = (CryptoJS.AES.encrypt(customer.email.toString(), "9&:ks=mGK2XLB.hq")).toString(),
+      this.costMobileEnc = CryptoJS.AES.encrypt(customer.mobile.toString(), "9&:ks=mGK2XLB.hq").toString(),
+        console.log(this.costFullNameEnc),
     this.phoneList.push({
-      fullName: CryptoJS.AES.encrypt(customer.fullName),
-      email: CryptoJS.AES.encrypt(customer.email),
-      mobile: CryptoJS.AES.encrypt(customer.mobile)
+      fullName: this.costFullNameEnc,
+      email:  this.costEmailEnc,
+      mobile: this.costMobileEnc
     });
   }
 populateForm(customer) {
     this.form.setValue(customer);
   }
 updateCustomer(customer) {
-    this.phoneList.update(customer.$key, {
-      fullName: CryptoJS.AES.decrypt(customer.fullName),
-      email: CryptoJS.AES.decrypt(customer.email),
-      mobile: CryptoJS.AES.decrypt(customer.mobile)
+  this.costFullNameEnc = (CryptoJS.AES.encrypt(customer.fullName, "9&:ks=mGK2XLB.hq")).toString(),
+    this.costEmailEnc = (CryptoJS.AES.encrypt(customer.email, "9&:ks=mGK2XLB.hq")).toString(),
+    this.costMobileEnc = CryptoJS.AES.encrypt(customer.mobile, "9&:ks=mGK2XLB.hq").toString(),
+  this.phoneList.update(customer.$key, {
+    fullName: this.costFullNameEnc,
+    email:  this.costEmailEnc,
+    mobile: this.costMobileEnc
     });
   }
 deleteCustomer($key: string) {

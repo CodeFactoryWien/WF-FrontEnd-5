@@ -1,5 +1,8 @@
 <div class="card mt-4">
-  <h4 class="card-header">Home</h4>
+  <div class="card-header" style="display: flex; justify-content: space-between;">
+    <h4>Home</h4>
+    <h4><a mat-list-item (click)="logout()">Logout</a></h4>
+  </div>
   <div class="card-body">
     <p>Welcome to the Beta Access of ThePhonebookCompany!</p>
     <p>Your role is: <strong>{{currentUser.role}}</strong>.</p>
@@ -11,4 +14,4 @@
     </ul>
   </div>
 </div>
- <app-phone-book></app-phone-book>
+<app-phone-book></app-phone-book>

@@ -1,4 +1,4 @@
-import { Router } from '@angular/router';
+import { Router, RouteConfigLoadEnd } from '@angular/router';
 import { AuthenticationService } from './_services/authentication.service';
 import { User } from './_models/user';
 import { Role } from './_models/role';
@@ -40,24 +40,16 @@ export class AppComponent implements OnDestroy {
     this.mobileQuery.addListener(this._mobileQueryListener);
   }
 
-  public detectScroll(event: SE) {
-
-    if (event.header) {
-      this.isActive = false;
-      this.isActivefadeInDown = true;
-      this.fixedTolbar = true;
-    }
-
-    if (event.bottom) {
-      this.isActive = true;
-      this.isActivefadeInDown = false;
-      this.fixedTolbar = false;
-    }
-
-  }
-
   get isAdmin() {
     return this.currentUser && this.currentUser.role === Role.Admin;
+  }
+
+  userLoggedIn(){
+    if(this.currentUser.role == Role.Admin && Role.User){
+      return true;
+    } else {
+      return false;
+    }
   }
 
   logout() {
