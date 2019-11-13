@@ -18,28 +18,28 @@ export class PhonebookService {
      mobile: new FormControl('', [Validators.required, Validators.minLength(8)])
          });
 
-         getCustomers(){
+         getContacts(){
                  this.phoneList = this.firebase.list('contacts');
                  return this.phoneList.snapshotChanges();
          }
-         insertCustomer(customer){
+         insertContact(contact){
           this.phoneList.push({
-                  fullName: customer.fullName,
-                  email: customer.email,
-                  mobile: customer.mobile
+                  fullName: contact.fullName,
+                  email: contact.email,
+                  mobile: contact.mobile
            });
   }
-  populateForm(customer){
-        this.form.setValue(customer);
+  populateForm(contact){
+        this.form.setValue(contact);
       }
-      updateCustomer(customer){
-        this.phoneList.update(customer.$key,{
-           fullName:  customer.fullName,
-            email: customer.email,
-            mobile: customer.mobile
+      updateContact(contact){
+        this.phoneList.update(contact.$key,{
+           fullName:  contact.fullName,
+            email: contact.email,
+            mobile: contact.mobile
         });
       }
-      deleteCustomer($key: string){
+      deleteContact($key: string){
         this.phoneList.remove($key);
       }
 }

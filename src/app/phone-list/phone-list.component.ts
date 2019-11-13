@@ -14,7 +14,7 @@ export class PhoneListComponent implements OnInit {
   constructor(private phonebookService:PhonebookService) { }
 
   ngOnInit() {
-    this.phonebookService.getCustomers().subscribe(
+    this.phonebookService.getContacts().subscribe(
       (list) => {
               this.contactArray = list.map( (item) => {
                      return {
@@ -26,11 +26,17 @@ export class PhoneListComponent implements OnInit {
   }
   onDelete($key){
     if(confirm("Are you sure you want to delete this record?")){
-       this.phonebookService.deleteCustomer($key);
+       this.phonebookService.deleteContact($key);
       }
   }
-  filterCondition(customer){
-    return customer.fullName.toLowerCase().indexOf(this.searchText.toLowerCase()) != -1 ;
+
+  filterCondition(contact){
+    let words = contact.fullName.toLowerCase().split(" ");
+    for(let word of words){
+      if(word.startsWith(this.searchText.toLowerCase())) return true;
+    }
+    if(this.searchText == "") return true;
+    return false;
   }
 
 }
