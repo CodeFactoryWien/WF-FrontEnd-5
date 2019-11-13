@@ -24,7 +24,7 @@ const routes: Routes = [
     canActivate: [AuthGuard],
   },
   {
-    path: 'sitelogin',
+    path: 'login',
     component: LoginComponent,
   },
 
