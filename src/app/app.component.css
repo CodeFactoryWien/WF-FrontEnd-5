@@ -1,5 +1,4 @@
 /* -------------------  ELEVATION ---------------------------  */
-
 .mat-elevation-z0 {
   position: relative;
   z-index: 2;
@@ -12,11 +11,10 @@
 
 mat-sidenav {
   left: 0;
-  width: 50%
+  width: 50%;
 }
 
 /* -------------------  NAVIGATION ---------------------------  */
-
 .navigation-toolbar {
   position: absolute;
   top: 0;
@@ -26,8 +24,13 @@ mat-sidenav {
 }
 
 .navigation-fixed {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: row;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
   position: fixed;
   top: 0;
   bottom: 0;
@@ -45,11 +48,15 @@ h1.navigation-company-name {
 }
 
 .navigation-sidenav-container {
-  flex: 1;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
 }
 
 .navigation-is-mobile .navigation-sidenav-container {
-  flex: 1 0 auto;
+  -webkit-box-flex: 1;
+      -ms-flex: 1 0 auto;
+          flex: 1 0 auto;
 }
 
 .navigation-list {
@@ -58,7 +65,9 @@ h1.navigation-company-name {
 }
 
 .navigation-spacer {
-  flex: 1 1 auto;
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 auto;
+          flex: 1 1 auto;
 }
 
 .navigation-icon {
@@ -70,17 +79,23 @@ h1.navigation-company-name {
 }
 
 /* -------------------  LOGO ---------------------------  */
-
 .logo {
-
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: row;
-  align-items: center;
-  box-sizing: border-box;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
   padding: 0 16px;
   position: relative;
   height: inherit;
-
 }
 
 /* -------------------  LPCONTENT ---------------------------  */
+/*# sourceMappingURL=app.component.css.map */

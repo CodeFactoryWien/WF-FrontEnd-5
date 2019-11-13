@@ -1,23 +1,24 @@
-.Courses-row{
-	margin-top: 20px;
+.Courses-row {
+  margin-top: 20px;
 }
 
-.Courses-button{
-	margin-top: 10px;
+.Courses-button {
+  margin-top: 10px;
 }
 
-.Courses-section{
+.Courses-section {
   text-align: center;
 }
 
-.Courses-heading{
+.Courses-heading {
   padding-bottom: 30px;
 }
 
-.Courses-heading h2{
+.Courses-heading h2 {
   font-size: 32px;
 }
 
-.Courses-heading h3{
+.Courses-heading h3 {
   font-size: 22px;
 }
+/*# sourceMappingURL=courses.component.css.map */

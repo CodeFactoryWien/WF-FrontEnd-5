@@ -9,7 +9,7 @@ import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 import { ContactDialogComponent } from './contact-dialog/contact-dialog.component';
 import { DOCUMENT } from '@angular/common';
 
-@Component({ selector: 'app', templateUrl: 'app.component.html' })
+@Component({ selector: 'app', templateUrl: 'app.component.html', styleUrls: ['app.component.scss']})
 export class AppComponent implements OnDestroy {
 
   currentUser: User;

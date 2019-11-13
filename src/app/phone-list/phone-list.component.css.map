@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "",
+    "sources": [
+        "phone-list.component.scss"
+    ],
+    "names": [],
+    "file": "phone-list.component.css"
+}

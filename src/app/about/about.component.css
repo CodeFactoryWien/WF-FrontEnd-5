@@ -1,20 +1,20 @@
-.about-section{
+.about-section {
   text-align: center;
 }
 
-.about-heading{
+.about-heading {
   padding-bottom: 30px;
 }
 
-.about-heading h2{
+.about-heading h2 {
   font-size: 32px;
 }
 
-.about-heading h3{
+.about-heading h3 {
   font-size: 22px;
 }
 
-.about-text{
+.about-text {
   text-align: center;
 }
 
@@ -22,7 +22,8 @@
   font-family: 'Material Icons';
   font-weight: normal;
   font-style: normal;
-  font-size: 68px;  /* Preferred icon size */
+  font-size: 68px;
+  /* Preferred icon size */
   display: inline-block;
   line-height: 1;
   text-transform: none;
@@ -30,15 +31,14 @@
   word-wrap: normal;
   white-space: nowrap;
   direction: ltr;
-
   /* Support for all WebKit browsers. */
   -webkit-font-smoothing: antialiased;
   /* Support for Safari and Chrome. */
   text-rendering: optimizeLegibility;
-
   /* Support for Firefox. */
   -moz-osx-font-smoothing: grayscale;
-
   /* Support for IE. */
-  font-feature-settings: 'liga';
+  -webkit-font-feature-settings: 'liga';
+          font-feature-settings: 'liga';
 }
+/*# sourceMappingURL=about.component.css.map */
