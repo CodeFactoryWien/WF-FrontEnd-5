@@ -21,4 +21,8 @@
 .Courses-heading h3 {
   font-size: 22px;
 }
+.mat-card-image {
+    width: calc(100%);
+    margin: 0 0 0 0; 
+}
 /*# sourceMappingURL=courses.component.css.map */
