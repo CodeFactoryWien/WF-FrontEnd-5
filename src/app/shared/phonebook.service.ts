@@ -18,12 +18,6 @@ export class PhonebookService {
      mobile: new FormControl('', [Validators.required, Validators.minLength(8)])
          });
 
-  form = new FormGroup({
-    $key: new FormControl(null),
-    fullName: new FormControl('', Validators.required),
-    email: new FormControl('', Validators.email),
-    mobile: new FormControl('', [Validators.required, Validators.minLength(8)])
-  });
   costFullNameEnc: string;
   costEmailEnc: string;
   costMobileEnc: string;
@@ -36,9 +30,9 @@ getCustomers() {
     return this.phoneList.snapshotChanges();
   }
   insertCustomer(customer) {
-      this.costFullNameEnc = (CryptoJS.AES.encrypt(customer.fullName.toString(), "1234")).toString(),
-      this.costEmailEnc = (CryptoJS.AES.encrypt(customer.email.toString(), "1234")).toString(),
-      this.costMobileEnc = CryptoJS.AES.encrypt(customer.mobile.toString(), "1234").toString(),
+    this.costFullNameEnc = (CryptoJS.AES.encrypt(customer.fullName.toString(), "9&:ks=mGK2XLB.hq")).toString(),
+      this.costEmailEnc = (CryptoJS.AES.encrypt(customer.email.toString(), "9&:ks=mGK2XLB.hq")).toString(),
+      this.costMobileEnc = CryptoJS.AES.encrypt(customer.mobile.toString(), "9&:ks=mGK2XLB.hq").toString(),
         console.log(this.costFullNameEnc),
     this.phoneList.push({
       fullName: this.costFullNameEnc,
