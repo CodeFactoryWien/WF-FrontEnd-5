@@ -1,15 +1,22 @@
 import { Injectable } from '@angular/core';
-import { FormControl, FormGroup, Validators } from "@angular/forms";
+import { FormControl , FormGroup , Validators } from "@angular/forms";
 import { AngularFireDatabase, AngularFireList } from "angularfire2/database";
 import * as CryptoJS from 'crypto-js';
 
 @Injectable({
-  providedIn: 'root'
+ providedIn: 'root'
 })
 export class PhonebookService {
 
-  constructor(private firebase: AngularFireDatabase) { }
-  phoneList: AngularFireList<any>;
+ constructor(private firebase: AngularFireDatabase) { }
+         phoneList: AngularFireList<any>;
+          currentUser: number;
+         form = new FormGroup({
+     $key: new FormControl(null),
+     fullName: new FormControl('', Validators.required),
+     email: new FormControl('', Validators.email),
+     mobile: new FormControl('', [Validators.required, Validators.minLength(8)])
+         });
 
   form = new FormGroup({
     $key: new FormControl(null),
@@ -25,7 +32,7 @@ export class PhonebookService {
   costMobileDec: string;
 
 getCustomers() {
-  this.phoneList = this.firebase.list('contacts-test');
+  this.phoneList = this.firebase.list(this.currentUser.toString()+"userDB");
     return this.phoneList.snapshotChanges();
   }
   insertCustomer(customer) {

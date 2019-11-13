@@ -36,8 +36,14 @@ export class PhoneListComponent implements OnInit {
       this.phonebookService.deleteCustomer($key);
     }
   }
-  filterCondition(customer){
-    return customer.fullName.toLowerCase().indexOf(this.searchText.toLowerCase()) != -1 ;
+
+  filterCondition(contact){
+    let words = contact.fullName.toLowerCase().split(" ");
+    for(let word of words){
+      if(word.startsWith(this.searchText.toLowerCase())) return true;
+    }
+    if(this.searchText == "") return true;
+    return false;
   }
 
 }

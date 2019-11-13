@@ -5,13 +5,12 @@ import { AdminComponent } from './admin/admin.component'
 import { LoginComponent } from './login/login.component';
 import { AuthGuard } from './_helpers/auth.guard';
 import { Role } from './_models/role';
-import { BlogComponent } from './blog/blog.component';
+import { MainsiteComponent } from './mainsite/mainsite.component';
 
 const routes: Routes = [
   {
     path: '',
-    component: HomeComponent,
-    canActivate: [AuthGuard]
+    component: MainsiteComponent,
   },
   {
     path: 'admin',
@@ -20,12 +19,13 @@ const routes: Routes = [
     data: { roles: [Role.Admin] }
   },
   {
-    path: 'login',
-    component: LoginComponent
+    path: 'home',
+    component: HomeComponent,
+    canActivate: [AuthGuard],
   },
   {
-    path: 'home',
-    component: BlogComponent
+    path: 'login',
+    component: LoginComponent,
   },
 
   // otherwise redirect to home
