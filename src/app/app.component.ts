@@ -40,22 +40,6 @@ export class AppComponent implements OnDestroy {
     this.mobileQuery.addListener(this._mobileQueryListener);
   }
 
-  public detectScroll(event: SE) {
-
-    if (event.header) {
-      this.isActive = false;
-      this.isActivefadeInDown = true;
-      this.fixedTolbar = true;
-    }
-
-    if (event.bottom) {
-      this.isActive = true;
-      this.isActivefadeInDown = false;
-      this.fixedTolbar = false;
-    }
-
-  }
-
   get isAdmin() {
     return this.currentUser && this.currentUser.role === Role.Admin;
   }
