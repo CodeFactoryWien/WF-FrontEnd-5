@@ -1,1 +1,8 @@
-/* No CSS *//*# sourceMappingURL=phone-book.component.css.map */
+.mat-drawer-content {
+    position: relative;
+    z-index: 1;
+    display: block;
+    height: 600px;
+    overflow: auto;
+}
+/*# sourceMappingURL=phone-book.component.css.map */

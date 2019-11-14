@@ -52,3 +52,10 @@ section{
   color: mat-color($nglp-accent, A700);
 }
 
+.mat-drawer-content {
+    position: relative;
+    z-index: 1;
+    display: block;
+    height: 600px;
+    overflow: auto;
+}

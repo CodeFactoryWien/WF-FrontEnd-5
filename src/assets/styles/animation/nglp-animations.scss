@@ -1,9 +1,4 @@
-/*!
-Animate.css - http://daneden.me/animate
-Licensed under the MIT license - http://opensource.org/licenses/MIT
 
-Copyright (c) 2015 Daniel Eden
-*/
 
 @import 'animate.scss';
 
@@ -65,13 +60,13 @@ Copyright (c) 2015 Daniel Eden
   -moz-animation-timing-function: cubic-bezier(0.51, 0.02, 0, 1.335);
   -o-animation-timing-function: cubic-bezier(0.51, 0.02, 0, 1.335);
   animation-timing-function: cubic-bezier(0.51, 0.02, 0, 1.335);
-}    
+}
 
 /* ------- zoom -------- */
 
 .animated.zoomIn{
   opacity: 1;
-}    
+}
 
 .animated.zoomIn.about1 {
   animation-delay: 0.1s;
@@ -104,8 +99,3 @@ Copyright (c) 2015 Daniel Eden
   -o-animation-timing-function: cubic-bezier(0.51, 0.02, 0, 1.335);
   animation-timing-function: cubic-bezier(0.51, 0.02, 0, 1.335);
 }
-
-
-
-
-
