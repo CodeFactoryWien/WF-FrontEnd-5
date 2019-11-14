@@ -42,6 +42,8 @@ export class PhoneListComponent implements OnInit {
     for(let word of words){
       if(word.startsWith(this.searchText.toLowerCase())) return true;
     }
+    if(contact.email.toLowerCase().startsWith(this.searchText.toLowerCase())) return true;
+    if(contact.mobile.toLowerCase().startsWith(this.searchText.toLowerCase())) return true;
     if(this.searchText == "") return true;
     return false;
   }
