@@ -31,6 +31,7 @@ import { AngularFireModule } from "angularfire2";
 import { AngularFireDatabaseModule } from "angularfire2/database";
 import { environment } from "../environments/environment";
 import { MainsiteComponent } from './mainsite/mainsite.component';
+import { UserListComponent } from './user-list/user-list.component';
 
 @NgModule({
   declarations: [
@@ -48,7 +49,8 @@ import { MainsiteComponent } from './mainsite/mainsite.component';
     BlogComponent,
     ContactComponent,
     ContactDialogComponent,
-    MainsiteComponent
+    MainsiteComponent,
+    UserListComponent
   ],
   imports: [
     BrowserModule,
