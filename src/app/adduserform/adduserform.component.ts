@@ -1,17 +1,17 @@
 import { Component, OnInit } from '@angular/core';
 
 import { UserServiceService } from '../user-service.service';
-import { UserListComponent } from '../user-list/user-list.component';
+
 @Component({
   selector: 'app-adduserform',
   templateUrl: './adduserform.component.html',
-  styleUrls: ['./adduserform.component.css']
 })
 export class AdduserformComponent implements OnInit {
 
   constructor(public userServiceService: UserServiceService) { }
   submitted: boolean;
   showSuccessMessage: boolean;
+  formControls = this.userServiceService.form.controls;
   ngOnInit() {
   }
   onSubmit() {
