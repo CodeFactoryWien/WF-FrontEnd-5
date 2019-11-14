@@ -10,9 +10,10 @@ import { PhonebookService  } from "../shared/phonebook.service";
 })
 export class PhoneBookComponent implements OnInit {
 
-  constructor(private phonebookService:PhonebookService) { }
+  constructor(public phonebookService:PhonebookService) { }
   submitted: boolean;
   showSuccessMessage: boolean;
+  formControls = this.phonebookService.form.controls;
 
   ngOnInit() {
   }
