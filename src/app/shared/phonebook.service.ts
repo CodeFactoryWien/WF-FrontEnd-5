@@ -8,7 +8,7 @@ import * as CryptoJS from 'crypto-js';
 })
 export class PhonebookService {
 
- constructor(private firebase: AngularFireDatabase) { }
+ constructor(public firebase: AngularFireDatabase) { }
          phoneList: AngularFireList<any>;
           currentUser: number;
          form = new FormGroup({

@@ -24,11 +24,11 @@ export class AppComponent implements OnDestroy {
 
   mobileQuery: MediaQueryList;
 
-  private _mobileQueryListener: () => void;
+  public _mobileQueryListener: () => void;
 
   constructor(
-    private router: Router,
-    private authenticationService: AuthenticationService,
+    public router: Router,
+    public authenticationService: AuthenticationService,
     @Inject(DOCUMENT) document,
     changeDetectorRef: ChangeDetectorRef,
     media: MediaMatcher,

@@ -13,7 +13,7 @@ export class PhoneListComponent implements OnInit {
   emailDec: string;
   fullNameDec: string;
   mobileDec: string;
-  constructor(private phonebookService: PhonebookService) { }
+  constructor(public phonebookService: PhonebookService) { }
 
   ngOnInit() {
     this.phonebookService.getCustomers().subscribe(

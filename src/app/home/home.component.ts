@@ -15,10 +15,10 @@ export class HomeComponent {
     userFromApi: User;
 
     constructor(
-        private router: Router,
-        private userService: UserService,
-        private authenticationService: AuthenticationService,
-        private phonebookService: PhonebookService
+        public router: Router,
+        public userService: UserService,
+        public authenticationService: AuthenticationService,
+        public phonebookService: PhonebookService
     ) {
         this.currentUser = this.authenticationService.currentUserValue;
     }

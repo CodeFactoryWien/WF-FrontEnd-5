@@ -6,7 +6,7 @@ import { Directive, ElementRef, HostListener, Input } from '@angular/core';
 
 export class AboutDirective {
  
-  constructor(private el: ElementRef) { }
+  constructor(public el: ElementRef) { }
  
   @Input() defaultColor: string;
  
@@ -20,11 +20,11 @@ export class AboutDirective {
     this.removeHoverEffect();
   }
  
-  private setHoverEffect() {
+  public setHoverEffect() {
     this.el.nativeElement.classList.add('about-hover-effect');
   }
 
-  private removeHoverEffect() {
+  public removeHoverEffect() {
     this.el.nativeElement.classList.remove('about-hover-effect');
   }
 
