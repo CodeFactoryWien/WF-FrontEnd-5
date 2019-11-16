@@ -10,16 +10,11 @@ export class UserServiceService {
 
   constructor(private firebase: AngularFireDatabase) { }
   userList: AngularFireList<any>;
-  
 
   form = new FormGroup({
     $key: new FormControl(null),
-    id: new FormControl(null),
     username: new FormControl('', Validators.required),
-    password: new FormControl('', [Validators.required, Validators.minLength(8)]),
-    firstName: new FormControl('', Validators.required),
-    lastName: new FormControl('', Validators.required),
-    role: new FormControl('', Validators.required)
+    password: new FormControl('', [Validators.required, Validators.minLength(8)])
   });
 
   getUser() {
@@ -29,10 +24,7 @@ export class UserServiceService {
   insertUser(user) {
     this.userList.push({
       username: user.username,
-      password: user.password,
-      firstName: user.firstName,
-      lastName: user.lastName,
-      role: user.role,
+      password: user.password
     });
   }
   populateForm(user) {
@@ -41,10 +33,7 @@ export class UserServiceService {
   updateUser(user) {
     this.userList.update(user.$key, {
       username: user.username,
-      password: user.password,
-      firstName: user.firstName,
-      lastName: user.lastName,
-      role: user.role,
+      password: user.password
     });
   }
   deleteUser($key: string) {
