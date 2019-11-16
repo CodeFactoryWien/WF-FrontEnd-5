@@ -11,7 +11,7 @@
     </thead>
     <ng-container *ngFor="let contact of contactArray">
             <tr class="table-dark" *ngIf ="filterCondition(contact)">
-                    <td>{{contact.fullName}}</td>
+                    <td>{{contact.firstName}} {{contact.lastName}}</td>
                     <td>{{contact.email}}</td>
                     <td>{{contact.mobile}}</td>
                     <td>

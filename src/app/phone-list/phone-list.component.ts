@@ -11,7 +11,8 @@ export class PhoneListComponent implements OnInit {
   contactArray = [];
   searchText: string = "";
   emailDec: string;
-  fullNameDec: string;
+  firstNameDec: string;
+  lastNameDec: string;
   mobileDec: string;
   constructor(public phonebookService: PhonebookService) { }
 
@@ -19,14 +20,22 @@ export class PhoneListComponent implements OnInit {
     this.phonebookService.getCustomers().subscribe(
       (list) => {
         this.contactArray = list.map((item) => {
+          console.log("1");
           this.emailDec = CryptoJS.AES.decrypt(item.payload.val().email, "9&:ks=mGK2XLB.hq").toString(CryptoJS.enc.Utf8);
-          this.fullNameDec = CryptoJS.AES.decrypt(item.payload.val().fullName, "9&:ks=mGK2XLB.hq").toString(CryptoJS.enc.Utf8);
+          console.log("1");
+          this.firstNameDec = CryptoJS.AES.decrypt(item.payload.val().firstName, "9&:ks=mGK2XLB.hq").toString(CryptoJS.enc.Utf8);
+          console.log("1");
+          this.lastNameDec = CryptoJS.AES.decrypt(item.payload.val().lastName, "9&:ks=mGK2XLB.hq").toString(CryptoJS.enc.Utf8);
+          console.log("1");
           this.mobileDec = CryptoJS.AES.decrypt(item.payload.val().mobile,"9&:ks=mGK2XLB.hq").toString(CryptoJS.enc.Utf8);
+          console.log("1");
           return {
             $key: item.key,
             email: this.emailDec,
-            fullName: this.fullNameDec,
-            mobile: this.mobileDec
+            firstName: this.firstNameDec,
+            lastName: this.lastNameDec,
+            mobile: this.mobileDec,
+            type: item.payload.val().type
           }
         })
       });;
@@ -38,7 +47,8 @@ export class PhoneListComponent implements OnInit {
   }
 
   filterCondition(contact){
-    let words = contact.fullName.toLowerCase().split(" ");
+    let words = contact.firstName.toLowerCase().split(" ");
+    words.concat(contact.lastName.toLowerCase().split(" "));
     for(let word of words){
       if(word.startsWith(this.searchText.toLowerCase())) return true;
     }
